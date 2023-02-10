@@ -3,7 +3,7 @@
 // Author : Thomas Crecq
 
 // Loving name list.
-const lovingNameList = [
+const lovingNames = [
   "Beauté fatale",
   "Bibiche",
   "Bichette",
@@ -119,24 +119,24 @@ const positiveSentences = [
   "Tous les jours et à tout point de vue, tu vas de mieux en mieux. ",
 ];
 
-// Function that generates the positive sentence based on random number
+// Create a function that can be used to generate a random number to be the index of a list.
+
+const randNum = (arr) => Math.floor(Math.random() * arr.length);
+
+// Function that generates the mixed message based on random number
 // It takes a random word from the word list and put it in place
 
 const mixedMessage = () => {
   // Generating a random name
-  let randNameIndex = Math.floor(Math.random() * lovingNameList.length);
-  let randName = lovingNameList[randNameIndex];
+  let randNameIndex = randNum(lovingNames);
+  let randName = lovingNames[randNameIndex];
 
   // Generating a random Adjective
-  let randAdjectiveIndex = Math.floor(
-    Math.random() * positiveAdjectives.length
-  );
+  let randAdjectiveIndex = randNum(positiveAdjectives);
   let randAdjective = positiveAdjectives[randAdjectiveIndex];
 
   // Generating a positive sentence
-  let randPositiveSentenceIndex = Math.floor(
-    Math.random() * positiveSentences.length
-  );
+  let randPositiveSentenceIndex = randNum(positiveSentences);
   let randSentence = positiveSentences[randPositiveSentenceIndex];
 
   return `Bonjour ${randName}, tu sembles d'humeur ${randAdjective} aujourd'hui ! :) Voilà une citation qui pourrait te plaire pour ta journée : ${randSentence}`;
